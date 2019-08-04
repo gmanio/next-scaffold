@@ -2,11 +2,14 @@
   "compilerOptions": {
     "allowJs": true,
     "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
     "esModuleInterop": true,
     "isolatedModules": true,
+    "importHelpers": true,
     "jsx": "preserve",
     "lib": [
       "dom",
+      "es2015",
       "es2017"
     ],
     "module": "esnext",
@@ -15,17 +18,15 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strict": true,
+    "strict": false,
     "target": "esnext",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "exclude": [
     "node_modules"
-  ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
   ]
 }

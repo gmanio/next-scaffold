@@ -26,20 +26,25 @@ export default class extends App<Props> {
 
   render () {
     const { Component, pageProps, userAgent } = this.props;
-
-    // return (
-    //   <UserAgentProvider ua={userAgent}>
-    //     <UserAgent mobile>
-    //       <p>This will only be rendered on mobile</p>
-    //     </UserAgent>
-    //     <UserAgent computer>
-    //       <p>This will only be rendered on desktop</p>
-    //     </UserAgent>
-    //   </UserAgentProvider>
-
     return (
       <Container>
-        <Component {...pageProps} />
+        <UserAgentProvider ua={userAgent}>
+          <UserAgent mobile>
+            <Component>
+              {pageProps}
+            </Component>
+            <p>This will only be rendered on mobile</p>
+          </UserAgent>
+          <UserAgent computer>
+            <Component>
+              <Component>
+                {pageProps}
+              </Component>
+            </Component>
+            <p>This will only be rendered on desktop</p>
+          </UserAgent>
+        </UserAgentProvider>
+
       </Container>
     )
   }
