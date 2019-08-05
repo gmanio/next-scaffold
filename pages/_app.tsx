@@ -1,12 +1,7 @@
 import React from 'react';
 import App, { AppContext, Container } from 'next/app';
-import { UserAgent, UserAgentProvider } from '@quentin-sommer/react-useragent'
 
-interface Props {
-  userAgent: string
-}
-
-export default class extends App<Props> {
+export default class extends App {
   // Only uncomment this method if you have blocking data requirements for
   // every single page in your application. This disables the ability to
   // perform automatic static optimization, causing every page in your app to
@@ -15,36 +10,20 @@ export default class extends App<Props> {
   static async getInitialProps ({ Component, ctx }: AppContext) {
     let pageProps = {};
 
-    const userAgent = ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent;
-
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps, userAgent };
+    return { pageProps };
   }
 
   render () {
-    const { Component, pageProps, userAgent } = this.props;
+    const { Component, pageProps } = this.props;
     return (
       <Container>
-        <UserAgentProvider ua={userAgent}>
-          <UserAgent mobile>
-            <Component>
-              {pageProps}
-            </Component>
-            <p>This will only be rendered on mobile</p>
-          </UserAgent>
-          <UserAgent computer>
-            <Component>
-              <Component>
-                {pageProps}
-              </Component>
-            </Component>
-            <p>This will only be rendered on desktop</p>
-          </UserAgent>
-        </UserAgentProvider>
-
+        <Component>
+          {pageProps}
+        </Component>
       </Container>
     )
   }
