@@ -1,19 +1,15 @@
 import React from 'react';
 import Document, { Html, Main, NextScript, DocumentContext, Head } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import * as Styled from '../styles/style';
 
 export default class extends Document {
   static async getInitialProps (ctx: DocumentContext) {
+    console.log('Document:: getInitialProps');
     const sheet = new ServerStyleSheet();
-
-    const page = ctx.renderPage((App) => (props) =>
-      sheet.collectStyles(<App {...props} />),
-    );
-
-    // Step 3: Extract the styles as <style> tags
+    const page = ctx.renderPage((App) => (props) => sheet.collectStyles(<App {...props} />));
     const styleTags = sheet.getStyleElement();
 
-    // Step 4: Pass styleTags as a prop
     return { ...page, styleTags };
   }
 
@@ -34,6 +30,7 @@ export default class extends Document {
           <link rel="shortcut icon" href="https://cdn-mart.baemin.com/front-end/assets-static/favicon-new.ico"/>
           <link rel="icon" href="https://cdn-mart.baemin.com/front-end/assets-static/favicon-new.ico"/>
           <link rel="apple-touch-icon" href="https://cdn-mart.baemin.com/front-end/assets-static/touch-icon.png"/>
+
         </Head>
         <body>
         <Main/>

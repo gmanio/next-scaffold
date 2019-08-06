@@ -8,6 +8,7 @@ export default class extends App {
   // be server-side rendered.
 
   static async getInitialProps ({ Component, ctx }: AppContext) {
+    console.log('App:: getInitialProps');
     let pageProps = {};
 
     if (Component.getInitialProps) {
@@ -19,11 +20,10 @@ export default class extends App {
 
   render () {
     const { Component, pageProps } = this.props;
+
     return (
       <Container>
-        <Component>
-          {pageProps}
-        </Component>
+        <Component {...pageProps}/>
       </Container>
     )
   }
