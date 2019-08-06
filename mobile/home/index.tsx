@@ -1,15 +1,17 @@
 import React from 'react';
-import * as Styled from '../../../styles/style';
-import { Head } from 'next/document';
 
 const Index = () => {
+  const env = process.env.customKey;
   return (
     <>
-      <Styled.Wrapper/>
+      {env}
       <div>Welcome to mobile Next.js!</div>
     </>
-
   );
+}
+
+Index.getInitialProp = () => {
+  console.log('Index');
 }
 
 export default Index;
