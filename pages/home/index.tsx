@@ -1,19 +1,35 @@
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import * as React from 'react';
+import DesktopHome from '@src/desktop/home';
 
-// const DynamicComponent = (componentUrl: string) => dynamic(() => import(componentUrl));
-const getLoader = (sUrl) => () => import(sUrl);
+// export default class Home extends React.PureComponent {
+//   getInitialProps () {
+//     debugger;
+//   }
+//
+//   render () {
+//     return (<></>)
+//   }
+// }
 
 export const Home = (props: any) => {
+  debugger;
   const router = useRouter();
   const path = router.pathname;
-  console.log(props);
-  const componentUrl = props.isMobile ? `../../mobile${path}` : `../../desktop${path}`;
-  console.log(componentUrl);
-  const HomeComponent = dynamic(getLoader(componentUrl));
+  const loader = props.isMobile ? () => import(`../../src/mobile${path}`) : import(`../../src/desktop${path}`);
+  const HomeComponent = dynamic(loader);
 
-  return (<HomeComponent/>)
+  return (
+    <>
+      <DesktopHome/>
+      <HomeComponent {...props}/>
+    </>
+  )
+}
+
+Home.getInitialProps = async () => {
+  console.log('Home InitialProps');
 }
 
 export default Home;

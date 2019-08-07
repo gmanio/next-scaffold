@@ -4,14 +4,13 @@ const Index = () => {
   const env = process.env.customKey;
   return (
     <>
-      {env}
       <div>Welcome to mobile Next.js!</div>
     </>
   );
 }
 
-Index.getInitialProp = () => {
-  console.log('Index');
+Index.getInitialProps = () => {
+  console.log('mobile Home');
 }
 
 export default Index;

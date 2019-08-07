@@ -12,6 +12,7 @@
       "es2015",
       "es2017"
     ],
+    "baseUrl": ".",
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -24,7 +25,10 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "paths": {
+      "@src/*": ["src/*"]
+    }
   },
   "exclude": [
     "node_modules"

@@ -1,30 +1,9 @@
-import React from 'react';
-import { NextPageContext } from 'next';
-// import { UserAgent, UserAgentProvider } from '@quentin-sommer/react-useragent';
+import React from 'react'
+import styled from 'styled-components'
 
-interface Props {
-  userAgent?: string
-}
+const Title = styled.h1`
+  font-size: 50px;
+  color: ${({ theme }) => theme.colors.primary};
+`
 
-export default class extends React.Component<Props> {
-  static async getInitialProps({ req }: NextPageContext) {
-    const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-    return { userAgent };
-  }
-
-  render () {
-    const { userAgent } = this.props;
-    return (
-      <>
-        {/*<UserAgentProvider ua={userAgent}>*/}
-        {/*  <UserAgent mobile>*/}
-        {/*    <p>This will only be rendered on mobile</p>*/}
-        {/*  </UserAgent>*/}
-        {/*  <UserAgent computer>*/}
-        {/*    <p>This will only be rendered on desktop</p>*/}
-        {/*  </UserAgent>*/}
-        {/*</UserAgentProvider>*/}
-      </>
-    )
-  }
-}
+export default () => <Title>My page</Title>

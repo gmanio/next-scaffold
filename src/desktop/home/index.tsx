@@ -6,4 +6,8 @@ const Index = () => {
   );
 }
 
+Index.getInitialProps = () => {
+  console.log('desktop Home');
+}
+
 export default Index;
