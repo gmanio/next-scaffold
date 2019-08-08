@@ -25,4 +25,4 @@ class Home extends React.Component<Props> {
   }
 }
 
-export default inject(store => store)(observer(Home));
+export default Home;

@@ -1,10 +1,10 @@
 import fetch from 'isomorphic-unfetch';
-import { action, computed, observable } from 'mobx';
+import { action, computed, observable, runInAction } from 'mobx';
 
 export default class UserStore {
-  @observable users = [];
+  @observable public users = [];
   @observable state = 'pending';
-  private root: any;
+  root: any;
 
   constructor(root) {
     this.root = root;
@@ -12,8 +12,20 @@ export default class UserStore {
 
   @action
   async fetchUsers () {
-    const response = await fetch('https://koreanjson.com/users');
-    const json = await response.json();
-    this.users = json;
+
+    this.state = "pending"
+    try {
+      const response = await fetch('https://koreanjson.com/users');
+      const json = await response.json();
+      // after await, modifying state again, needs an actions:
+      runInAction(() => {
+        this.state = "done";
+        this.users = json;
+      })
+    } catch (error) {
+      runInAction(() => {
+        this.state = "error"
+      })
+    }
   }
 }

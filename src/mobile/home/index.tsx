@@ -1,25 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { inject, observer } from 'mobx-react';
 
-const Index = (props: any) => {
+const Index = ({ userStore }) => {
+  console.log(process);
+  const env = process.env.customKey;
+
+  // componentDidMount
   useEffect(() => {
-    props.userStore.fetchUsers();
+    userStore.fetchUsers();
   }, []);
 
   useEffect(() => {
-    console.log(props.userStore.users);
-  }, [props.userStore.users]);
-  // props.store.userStore.fetchUsers();
+    console.log(userStore.users);
+    debugger;
+  }, [userStore.users]);
 
-  console.log(props);
-  console.log(process);
-  const env = process.env.customKey;
+
   return (
     <>
-      {}
+      <span>{userStore.users.map((user) => (user.name))}</span>
       <div>Welcome to mobile Next.js! {env}</div>
     </>
   );
 }
 
-export default inject(({ userStore }) => userStore)(observer(Index));
+export default inject('userStore')(observer(Index));
