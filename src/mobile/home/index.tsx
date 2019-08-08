@@ -1,16 +1,16 @@
 import React from 'react';
+import { inject, observer } from 'mobx-react';
 
-const Index = () => {
+const Index = (props: any) => {
+  debugger;
+  console.log(props);
+  console.log(process);
   const env = process.env.customKey;
   return (
     <>
-      <div>Welcome to mobile Next.js!</div>
+      <div>Welcome to mobile Next.js! {env}</div>
     </>
   );
 }
 
-Index.getInitialProps = () => {
-  console.log('mobile Home');
-}
-
-export default Index;
+export default inject((store)=>{UserStore: store})(observer(Index));
