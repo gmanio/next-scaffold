@@ -1,8 +1,22 @@
 import React from 'react';
 import Document, { Html, Main, NextScript, DocumentContext, Head } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import { createGlobalStyle, ServerStyleSheet } from 'styled-components';
 
-export default class extends Document {
+createGlobalStyle`
+  html {
+    font-size: 10px;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Merriweather", serif;
+    font-size: 1.6em;
+    line-height: 1.6;
+  }
+`;
+
+
+export default class extends Document<{ styleTags }> {
   static async getInitialProps (ctx: DocumentContext) {
     console.log('Document:: getInitialProps');
     const sheet = new ServerStyleSheet();

@@ -1,7 +1,8 @@
 import React from 'react';
 import App, { AppContext, Container } from 'next/app';
-import * as Styled from '../styles/style';
 import { isMobile } from '../src/utils/agent';
+import { Provider } from 'mobx-react';
+import RootStore from '@src/stores';
 
 export default class extends App<{ isMobile: boolean }> {
   // Only uncomment this method if you have blocking data requirements for
@@ -22,13 +23,14 @@ export default class extends App<{ isMobile: boolean }> {
   }
 
   render () {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, isMobile } = this.props;
 
     return (
-      <Container>
-        <Styled.GlobalStyle/>
-        <Component {...pageProps} isMobile={this.props.isMobile}/>
-      </Container>
+      <Provider {...new RootStore()}>
+        <Container>
+          <Component {...pageProps} isMobile={isMobile}/>
+        </Container>
+      </Provider>
     )
   }
 }

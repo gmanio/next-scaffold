@@ -11,15 +11,18 @@
   "author": "GmanPark",
   "license": "MIT",
   "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
+    "mobx": "5.13.0",
+    "mobx-react": "6.1.1",
+    "mysql": "^2.17.1",
     "next": "^9.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "styled-components": "^4.3.2",
-    "mysql": "^2.17.1",
-    "isomorphic-unfetch": "^3.0.0"
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "7.5.5",
+    "@babel/plugin-proposal-decorators": "7.4.4",
     "@types/next": "^8.0.6",
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",

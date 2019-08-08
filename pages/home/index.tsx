@@ -1,35 +1,28 @@
-import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import * as React from 'react';
-import DesktopHome from '@src/desktop/home';
+import { inject, observer } from 'mobx-react';
 
-// export default class Home extends React.PureComponent {
-//   getInitialProps () {
-//     debugger;
-//   }
-//
-//   render () {
-//     return (<></>)
-//   }
-// }
-
-export const Home = (props: any) => {
-  debugger;
-  const router = useRouter();
-  const path = router.pathname;
-  const loader = props.isMobile ? () => import(`../../src/mobile${path}`) : import(`../../src/desktop${path}`);
-  const HomeComponent = dynamic(loader);
-
-  return (
-    <>
-      <DesktopHome/>
-      <HomeComponent {...props}/>
-    </>
-  )
+type Props = {
+  isMobile: boolean;
+  path: string
 }
 
-Home.getInitialProps = async () => {
-  console.log('Home InitialProps');
+class Home extends React.Component<Props> {
+  static async getInitialProps (props: any) {
+    return { path: props.pathname };
+  }
+
+  render () {
+    console.log(this.props);
+    const loader = this.props.isMobile ? () => import(`@src/mobile${this.props.path}`) : import(`@src/desktop${this.props.path}`);
+    const HomeComponent = dynamic(loader);
+
+    return (
+      <>
+        <HomeComponent {...this.props}/>
+      </>
+    )
+  }
 }
 
-export default Home;
+export default inject(store => store)(observer(Home));
