@@ -17,7 +17,6 @@
     "moduleResolution": "node",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": false,
     "noUnusedParameters": true,
     "strict": false,
     "target": "esnext",

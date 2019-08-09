@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { inject, observer } from 'mobx-react';
 
 const Index = ({ userStore }) => {
@@ -12,7 +12,6 @@ const Index = ({ userStore }) => {
 
   useEffect(() => {
     console.log(userStore.users);
-    debugger;
   }, [userStore.users]);
 
 

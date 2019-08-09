@@ -1,8 +1,8 @@
 import fetch from 'isomorphic-unfetch';
-import { action, computed, observable, runInAction } from 'mobx';
+import { action, observable, runInAction } from 'mobx';
 
 export default class UserStore {
-  @observable public users = [];
+  @observable users = [];
   @observable state = 'pending';
   root: any;
 

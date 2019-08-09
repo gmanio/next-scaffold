@@ -30,7 +30,7 @@
     "@zeit/next-css": "^1.0.1",
     "babel-plugin-module-resolver": "3.2.0",
     "module-resolver": "1.0.0",
-    "sanitize.css": "^11.0.0",
+    "sanitize.css": "11.0.0",
     "typeorm": "^0.2.18",
     "typescript": "^3.5.3"
   }
