@@ -6,15 +6,17 @@ type Props = {
 }
 
 class Home extends React.Component<Props> {
-  static async getInitialProps ({pathname}) {
-    return { pathname };
+  static async getInitialProps (props) {
+    console.log('Home:: getInitialProps');
+
+    return { pathname: props.pathname };
   }
 
   render () {
-    console.log(this.props);
+    // const isMobile: boolean = window ? window.isMobile ? true : false : false;
 
-    // const loader = this.props.isMobile ? () => import(`@src/mobile${this.props.pathname}`) : import(`@src/desktop${this.props.pathname}`);
-    const HomeComponent = dynamic(import(`@src/mobile${this.props.pathname}`));
+    const loader = true ? () => import(`@src/mobile${this.props.pathname}`) : import(`@src/desktop${this.props.pathname}`);
+    const HomeComponent = dynamic(loader);
 
     return (
       <>
