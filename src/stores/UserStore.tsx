@@ -12,19 +12,19 @@ export default class UserStore {
 
   @action
   async fetchUsers () {
+    this.state = "pending";
 
-    this.state = "pending"
     try {
       const response = await fetch('https://koreanjson.com/users');
       const json = await response.json();
       // after await, modifying state again, needs an actions:
       runInAction(() => {
         this.state = "done";
-        this.users = json;
+        this.users = this.users.concat(json);
       })
     } catch (error) {
       runInAction(() => {
-        this.state = "error"
+        this.state = "error";
       })
     }
   }

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { inject, observer } from 'mobx-react';
 
 const Index = ({ userStore }) => {
+  const fetchUsers = () => userStore.fetchUsers();
   console.log(process);
   const env = process.env.customKey;
 
@@ -17,6 +18,7 @@ const Index = ({ userStore }) => {
 
   return (
     <>
+      <button onClick={fetchUsers}>fetch</button>
       <span>{userStore.users.map((user) => (user.name))}</span>
       <div>Welcome to mobile Next.js! {env}</div>
     </>

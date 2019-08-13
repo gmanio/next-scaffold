@@ -6,7 +6,6 @@ import { isMobile } from '@src/utils/agent';
 import { MobileGlobalStyle } from '@src/mobile/GlobalStyle';
 import { DesktopGlobalStyle } from '@src/desktop/GlobalStyle';
 
-
 export default class extends App<any> {
   static async getInitialProps ({ Component, ctx }: AppContext) {
     console.log('App:: getInitialProps');

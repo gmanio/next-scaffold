@@ -1,4 +1,5 @@
 import React from 'react';
+import { inject, observer } from 'mobx-react';
 
 const Index = () => {
   return (
@@ -10,4 +11,4 @@ Index.getInitialProps = () => {
   console.log('desktop Home');
 }
 
-export default Index;
+export default inject('userStore')(observer(Index));

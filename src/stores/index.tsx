@@ -1,11 +1,12 @@
 import UserStore from '@src/stores/UserStore';
+import makeInspectable from 'mobx-devtools-mst';
 
 class RootStore {
-  private userStore: UserStore;
+  public userStore: UserStore;
 
   constructor() {
     this.userStore = new UserStore(this);
   }
 }
 
-export default RootStore;
+export default makeInspectable(RootStore);
