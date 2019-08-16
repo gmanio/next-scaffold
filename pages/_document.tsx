@@ -29,7 +29,7 @@ export default class extends Document<{ isMobile: boolean, styleTags }> {
         )
       }
     } finally {
-      sheet.seal()
+      sheet.seal();
     }
   }
 
