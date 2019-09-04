@@ -5,11 +5,10 @@ module.exports = (phase, { defaultConfig }) => {
   return withCSS({
     cssModules: true,
     env: {
-      customKey: 'kkkk'
+      customKey: 'customValue'
     },
     webpack: function (config, options) {
       config.resolve.alias['@src'] = path.join(__dirname, './src');
-
       return config;
     }
   });

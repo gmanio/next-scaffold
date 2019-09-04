@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { createConnection, getConnection, getConnectionManager } from 'typeorm';
 // import { Employee } from '../../db/Employee';
-import config from '../../ormconfig.json';
+import config from 'ormconfig.json';
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
