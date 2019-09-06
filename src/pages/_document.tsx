@@ -5,7 +5,6 @@ import { isMobile } from '@src/utils/agent';
 
 export default class extends Document<{ isMobile: boolean, styleTags }> {
   static async getInitialProps (ctx: DocumentContext) {
-    console.log('Document:: getInitialProps');
 
     const originalRenderPage = ctx.renderPage;
     const userAgent = ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent;
