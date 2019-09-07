@@ -5,12 +5,7 @@
   "plugins": [
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
-    [
-      "styled-components",
-      {
-        "ssr": true
-      }
-    ],
+    ["styled-components", {"ssr": true}],
     [
       "module-resolver", {
         "root": ["./src"],
