@@ -24,7 +24,7 @@ export default (props: Props) => {
   const [open, setOpen] = React.useState(false);
   const handleClickedList = () => {
     setOpen(!open);
-  }
+  };
 
   return (
     <ListWrapper>
