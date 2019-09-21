@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { inject, observer } from 'mobx-react';
 import UserCard from '@src/components/UserCard';
+import UserSelector from '@src/containers/UserSelector';
 
 const Index = ({ userStore }) => {
   const fetchUsers = () => userStore.fetchUsers();
@@ -19,6 +20,7 @@ const Index = ({ userStore }) => {
 
   return (
     <>
+      <UserSelector/>
       <button onClick={fetchUsers}>fetch</button>
       <span>{userStore.users.map((user) => (user.name))}</span>
       <div>Welcome to mobile Next.js! {env}</div>

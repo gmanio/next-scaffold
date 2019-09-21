@@ -1,5 +1,4 @@
 import React from 'react';
-import * as Styled from './style';
 import { Button, Card, CardActions, CardContent, makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({

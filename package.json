@@ -16,7 +16,7 @@
     "mobx": "5.13.0",
     "mobx-react": "6.1.1",
     "mysql": "^2.17.1",
-    "next": "^9.0.3",
+    "next": "9.0.6",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "styled-components": "^4.3.2"
@@ -27,8 +27,8 @@
     "@types/material-ui": "0.21.7",
     "@types/next": "^8.0.6",
     "@types/react": "16.9.1",
-    "@types/react-dom": "^16.8.5",
-    "@types/styled-components": "^4.1.18",
+    "@types/react-dom": "16.9.0",
+    "@types/styled-components": "4.1.19",
     "@zeit/next-css": "^1.0.1",
     "babel-plugin-module-resolver": "3.2.0",
     "mobx-devtools": "0.9.21",
@@ -36,7 +36,7 @@
     "mobx-state-tree": "3.14.1",
     "module-resolver": "1.0.0",
     "sanitize.css": "11.0.0",
-    "typeorm": "^0.2.18",
-    "typescript": "^3.5.3"
+    "typeorm": "0.2.19",
+    "typescript": "3.6.3"
   }
 }
