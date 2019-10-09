@@ -1,9 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import Cookies from 'cookies';
 
 type handleApiRequest = (req: NextApiRequest, res: NextApiResponse) => void;
 
 export const requestHelper = (handleApiRequest: handleApiRequest) => (req: NextApiRequest, res: NextApiResponse) => {
-  res.setHeader('Cookie', 'test');
+  const cookies = new Cookies(req, res);
+  console.log(cookies.get('tester'));
+  cookies.set('tester', 'dfsdfsd', { maxAge: 5000 });
 
   return handleApiRequest(req, res);
 };
