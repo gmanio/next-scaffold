@@ -8,5 +8,8 @@ export const requestHelper = (handleApiRequest: handleApiRequest) => (req: NextA
   console.log(cookies.get('tester'));
   cookies.set('tester', 'dfsdfsd', { maxAge: 5000 });
 
+  if (req.method === 'GET') {
+  } else {
+  }
   return handleApiRequest(req, res);
 };
