@@ -4,6 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 // const iv = Buffer.alloc(16, 0);
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
+  console.log(req);
   // const key = crypto.scryptSync('password', 'salt', 24);
   // const cipher = crypto.createCipheriv('aes-192-cbc', key, iv);
   // const deCipher = crypto.createDecipheriv('aes-192-cbc', key, iv);

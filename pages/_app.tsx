@@ -1,5 +1,5 @@
 import React from 'react';
-import App, { AppContext, Container } from 'next/app';
+import App, { AppContext } from 'next/app';
 import { Provider } from 'mobx-react';
 import RootStore from '@src/stores';
 import { isMobile } from '@src/utils/agent';
@@ -27,9 +27,7 @@ export default class extends App<any> {
       <>
         {isMobile ? <MobileGlobalStyle/> : <DesktopGlobalStyle/>}
         <Provider {...new RootStore()}>
-          <Container>
-            <Component {...pageProps}/>
-          </Container>
+          <Component {...pageProps}/>
         </Provider>
       </>
     )
