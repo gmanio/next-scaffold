@@ -40,6 +40,7 @@ export default class extends Document<{ isMobile: boolean, styleTags }> {
         <link rel="icon" href="https://cdn-mart.baemin.com/front-end/assets-static/favicon-new.ico"/>
         <link rel="apple-touch-icon" href="https://cdn-mart.baemin.com/front-end/assets-static/touch-icon.png"/>
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,400,500&display=swap&subset=korean" rel="stylesheet"/>
+        <script src='https://developers.kakao.com/sdk/js/kakao.min.js'/>
         <style>
           {css`
           *{
