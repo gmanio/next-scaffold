@@ -4,5 +4,6 @@ declare global {
   interface Window {
     isMobile: boolean;
     dataLayer: GTMEventData[];
+    Kakao: any;
   }
 }
