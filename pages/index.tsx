@@ -14,8 +14,6 @@ export default class extends React.PureComponent {
     window.Kakao.Auth.createLoginButton({
       container: '#kakao-login-btn',
       success: (authObj) => {
-        // alert(JSON.stringify(authObj));
-        console.log(authObj);
         this.setState({ kakao_access_token: authObj.access_token });
         window.Kakao.API.request({
           url: '/v2/user/me',
