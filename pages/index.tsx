@@ -25,6 +25,8 @@ export default class extends React.PureComponent {
           success: (res) => {
             console.log(res);
             const user = new KakaoUser(res);
+            const email = user.kakao_account.email;
+            console.log(email);
             this.setState({ user: user });
           },
           fail: (error) => {
