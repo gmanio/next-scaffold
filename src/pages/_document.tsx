@@ -1,7 +1,7 @@
 import React from 'react';
 import Document, { Html, Main, NextScript, DocumentContext, Head } from 'next/document';
 import { css, ServerStyleSheet } from 'styled-components';
-import { isMobile } from '@src/utils/agent';
+import { isMobile } from '../utils/agent';
 
 export default class extends Document<{ isMobile: boolean, styleTags }> {
   static async getInitialProps (ctx: DocumentContext) {

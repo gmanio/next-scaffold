@@ -1,5 +1,5 @@
-import UserStore from '@src/stores/UserStore';
 import makeInspectable from 'mobx-devtools-mst';
+import UserStore from './UserStore';
 
 class RootStore {
   public userStore: UserStore;

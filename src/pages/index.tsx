@@ -1,5 +1,5 @@
 import * as React from 'react';
-import KakaoUser from '../models/KakaoUser';
+import KakaoUser from '../../models/KakaoUser';
 
 export default class extends React.PureComponent {
   static async getInitialProps () {
@@ -45,7 +45,6 @@ export default class extends React.PureComponent {
     e.stopPropagation();
     const status = await window.Kakao.Auth.getStatusInfo();
     console.log(status);
-    debugger;
   }
 
   render () {

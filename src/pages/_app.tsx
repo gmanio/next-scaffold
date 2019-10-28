@@ -1,10 +1,10 @@
 import React from 'react';
 import App, { AppContext } from 'next/app';
 import { Provider } from 'mobx-react';
-import RootStore from '@src/stores';
-import { isMobile } from '@src/utils/agent';
-import { MobileGlobalStyle } from '@src/mobile/GlobalStyle';
-import { DesktopGlobalStyle } from '@src/desktop/GlobalStyle';
+import { isMobile } from '../utils/agent';
+import { MobileGlobalStyle } from './mobile/GlobalStyle';
+import { DesktopGlobalStyle } from './desktop/GlobalStyle';
+import RootStore from '../stores';
 
 export default class extends App<any> {
   static async getInitialProps ({ Component, ctx }: AppContext) {
