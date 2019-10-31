@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import UserCard from '@src/components/UserCard';
+import UserCard from '../../components/UserCard';
 
 const ListWrapper = styled.section`
 `;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import KakaoUser from '../../models/KakaoUser';
+import KakaoUser from '../models/KakaoUser';
 
 export default class extends React.PureComponent {
   static async getInitialProps () {

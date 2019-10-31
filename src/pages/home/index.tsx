@@ -8,14 +8,12 @@ type Props = {
 class Home extends React.Component<Props> {
   static async getInitialProps (props) {
     console.log('Home:: getInitialProps');
-
     return { pathname: props.pathname };
   }
 
   render () {
     // const isMobile: boolean = window ? window.isMobile ? true : false : false;
-
-    const loader = true ? () => import(`@src/mobile${this.props.pathname}`) : import(`@src/desktop${this.props.pathname}`);
+    const loader = true ? () => import(`../../mobile${this.props.pathname}`) : import(`../../desktop${this.props.pathname}`);
     const HomeComponent = dynamic(loader);
 
     return (

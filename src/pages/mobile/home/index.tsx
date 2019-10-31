@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { inject, observer } from 'mobx-react';
-import UserCard from '@src/components/UserCard';
-import UserSelector from '@src/containers/UserSelector';
+import UserCard from '../../../components/UserCard';
+import UserSelector from '../../../containers/UserSelector';
 
 const Index = ({ userStore }) => {
   const fetchUsers = () => userStore.fetchUsers();
