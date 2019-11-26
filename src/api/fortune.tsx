@@ -6,6 +6,10 @@ import iconv from 'iconv-lite';
 import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
 
+//const today = http://fortune.nate.com/contents/freeunse/dayjiji.nate?jijiPage=0&jiji=01&dateparam=1;
+//const weekly = http://fortune.nate.com/contents/freeunse/dayjiji.nate?jijiPage=1&jiji=01&dateparam=1
+//const monthly = http://fortune.nate.com/contents/freeunse/dayjiji.nate?jijiPage=2&jiji=01&dateparam=1
+
 const sampleUrl = 'http://fortune.nate.com/contents/freeunse/dayjiji.nate?jijiPage=3&jiji=00&dateparam=2';
 
 const getHtml = async () => {
