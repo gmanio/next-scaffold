@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { dbHelper } from '../middleware/dbHelper';
+import { dbHelper } from 'middleware/dbHelper';
 
 const queryApi = async (req: NextApiRequest, res: NextApiResponse) => {
   console.log(req);

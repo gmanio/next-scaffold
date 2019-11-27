@@ -1,6 +1,6 @@
 // import { NextApiRequest, NextApiResponse } from 'next';
-import { dbHelper } from '../middleware/dbHelper';
-import { scheme } from '../graphql/scheme';
+import { dbHelper } from 'middleware/dbHelper';
+import { scheme } from 'graphql/scheme';
 import { ApolloServer } from 'apollo-server-micro';
 
 const resolvers = {

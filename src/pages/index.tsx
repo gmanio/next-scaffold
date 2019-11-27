@@ -14,6 +14,7 @@ export default class extends React.PureComponent {
   }
 
   componentDidMount () {
+
     window.Kakao.init('');
     // window.Kakao.Auth.getStatusInfo((res) => {
     //   console.log(res);
@@ -96,6 +97,11 @@ export default class extends React.PureComponent {
     console.log(e.currentTarget.value);
   }
 
+  handleData = async () => {
+    const data = await fetch('/api/fortune');
+    console.log(data);
+  }
+
   render () {
     return (
       <>
@@ -110,6 +116,7 @@ export default class extends React.PureComponent {
         </form>
 
         <input ref={this.inputRef} defaultValue={'1000'} onChange={this.handleInput}/>
+        <button onClick={this.handleData}/>
       </>
     )
   }

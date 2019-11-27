@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { requestHelper } from '../middleware/requestHelper';
+import { requestHelper } from 'middleware/requestHelper';
 
 const getHealthApi = (req: NextApiRequest, res: NextApiResponse) => {
   console.log(req);

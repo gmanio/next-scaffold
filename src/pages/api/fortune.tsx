@@ -1,5 +1,8 @@
 // http://fortune.nate.com/contents/freeunse/dayjiji.nate?jijiPage=3&jiji=01&dateparam=2
 import { NextApiRequest, NextApiResponse } from 'next';
+import microCors from 'micro-cors';
+// const microCors = require('micro-cors');
+const cors = microCors({ allowMethods: ['GET', 'PUT', 'POST'] });
 import { ajax } from 'rxjs/ajax';
 import cheerio from 'cheerio';
 import iconv from 'iconv-lite';
@@ -12,10 +15,11 @@ import { of } from 'rxjs';
 
 const sampleUrl = 'http://fortune.nate.com/contents/freeunse/dayjiji.nate?jijiPage=3&jiji=00&dateparam=2';
 
+
 const getHtml = async () => {
   const obs$ = ajax({
     url: sampleUrl,
-    method: 'GET',
+    method: 'GET'
   }).pipe(
     map(userResponse => console.log('users: ', userResponse)),
     catchError(error => {
@@ -26,12 +30,13 @@ const getHtml = async () => {
   try {
     // return await ajax(sampleUrl, { responseType: 'arraybuffer' });
     return await obs$.toPromise();
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error);
   }
 };
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const api = async (req: NextApiRequest, res: NextApiResponse) => {
   console.log(req.url);
   const html = await getHtml();
   // euc-kr convert
@@ -41,5 +46,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader('Content-Type', 'application/json');
   res.statusCode = 200;
 
-  res.json({ service: text });
-};
+  res.json({ service: 'test' });
+}
+
+export default api;
