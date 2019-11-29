@@ -37,12 +37,10 @@ const getHtml = async () => {
 };
 
 const api = async (req: NextApiRequest, res: NextApiResponse) => {
-  console.log(req.url);
   const html = await getHtml();
   // euc-kr convert
   const $ = cheerio.load(iconv.decode(Buffer.from(html.data), 'euc-kr'));
   const text = $('#con_txt').text();
-  console.log(text);
   res.setHeader('Content-Type', 'application/json');
   res.statusCode = 200;
 
